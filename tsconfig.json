@@ -23,7 +23,7 @@
     "sourceMap": true,
 
     // Needed to compile
-    "types" : ["node"]
+    "types" : ["react", "react-dom"]
   },
   "include": ["src/**/*.ts*", "src/index.js"],
   "exclude": ["node_modules", "src/**/*.spec.*ts*"]
