@@ -1,5 +1,6 @@
 .carousel {
    display: flex;
+   background-color: var(--background-alt);
    justify-content: center;
    align-items: center;
    gap: var(--spacing);

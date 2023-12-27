@@ -11,6 +11,7 @@
 
    --global-light: #cbcdd2;
    --global-dark: #1c1d21;
+   --global-darkest: #0f1012;
    --global-light-grey: #848794;
    --global-grey: #5d5d5d;
    --global-dark-grey: #45474f;
@@ -21,7 +22,7 @@
    --danger-color: #395333;
    --warning-color: #76a1a5;
 
-   --background: var(--global-dark);
+   --background: var(--global-darkest);
    --background-alt: var(--global-dark);
    --text-color: var(--success-color);
    --text-color-alt: var(--secondary-color);
@@ -77,6 +78,36 @@ body {
    text-rendering: optimizeLegibility;
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
+   background-image: radial-gradient(
+         var(--secondary-color),
+         rgba(255, 255, 255, 0.2) 5px,
+         transparent 40px
+      ),
+      radial-gradient(
+         var(--success-color),
+         rgba(255, 255, 255, 0.15) 1px,
+         transparent 30px
+      ),
+      radial-gradient(
+         var(--success-color),
+         rgba(255, 255, 255, 0.1) 2px,
+         transparent 40px
+      ),
+      radial-gradient(
+         rgba(255, 255, 255, 0.4),
+         rgba(255, 255, 255, 0.1) 2px,
+         transparent 30px
+      );
+   background-size:
+      550px 550px,
+      350px 350px,
+      250px 250px,
+      150px 150px;
+   background-position:
+      0 0,
+      40px 60px,
+      130px 270px,
+      70px 100px;
 }
 
 ul {
