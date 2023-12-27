@@ -26,5 +26,5 @@
     "types" : ["react", "react-dom"]
   },
   "include": ["src/**/*.ts*", "src/index.js"],
-  "exclude": ["node_modules", "src/**/*.spec.*ts*"]
+  "exclude": ["node_modules", "src/**/*.spec.*ts*", "public"]
 }

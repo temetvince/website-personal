@@ -1,0 +1,40 @@
+.container {
+   min-width: 300px;
+   max-width: 1200px;
+   margin: auto;
+}
+
+main {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: var(--spacing);
+   margin: var(--spacing);
+   font-size: calc(10px + 2vmin);
+}
+
+main .profile-picture {
+   pointer-events: none;
+}
+
+main .profile-text {
+   max-height: 309px;
+   min-height: 309px;
+}
+
+@media (max-width: 660px) {
+   main {
+      flex-direction: column;
+   }
+
+   main .profile-picture {
+      width: 100%;
+   }
+
+   main .profile-text {
+      max-width: fit-content;
+      max-height: fit-content;
+      align-items: center;
+      text-align: center;
+   }
+}

@@ -1,0 +1,11 @@
+.carousel {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: var(--spacing);
+   margin: var(--spacing);
+   font-size: calc(10px + 2vmin);
+   border: 1px solid var(--border-color);
+   border-radius: var(--box-rounding);
+   pointer-events: none;
+}

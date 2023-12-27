@@ -1,0 +1,20 @@
+.cardText {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   padding: var(--spacing);
+   border: 1px solid var(--border-color);
+   border-radius: var(--box-rounding);
+   background-color: var(--background-alt);
+   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+   transition: all 0.2s ease-in-out;
+}
+
+.cardText p {
+   margin: var(--spacing) 0;
+   font-size: var(--text-sm);
+   color: var(--text-color-alt);
+   padding: var(--spacing);
+   border: 1px solid var(--text-color);
+   border-radius: var(--box-rounding);
+}

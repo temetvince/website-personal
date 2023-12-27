@@ -1,0 +1,15 @@
+.cardImg {
+   padding: var(--spacing);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border: 1px solid var(--border-color);
+   border-radius: var(--box-rounding);
+   background-color: var(--background-alt);
+   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+   transition: all 0.2s ease-in-out;
+}
+
+.cardImgInner {
+   border-radius: var(--box-rounding);
+}
