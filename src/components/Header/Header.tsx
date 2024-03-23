@@ -7,7 +7,9 @@ export default function Header(props: HeaderProps) {
    return (
       <header>
          {props.navItems.map((item) => (
-            <a href={item.path}>{item.label}</a>
+            <a key={item.label} href={item.path}>
+               {item.label}
+            </a>
          ))}
       </header>
    );

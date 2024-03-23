@@ -1,0 +1,13 @@
+.quote {
+   background-color: var(--background-alt);
+   display: flex;
+   font-style: italic;
+   border: 1px solid var(--border-color-alt);
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+   border-radius: var(--box-rounding);
+   box-shadow: var(--box-shadow);
+   width: 100%;
+   padding: var(--spacing);
+}

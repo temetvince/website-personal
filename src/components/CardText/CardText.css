@@ -10,6 +10,10 @@
    transition: all 0.2s ease-in-out;
 }
 
+.cardText h4 {
+   color: var(--text-color-alt);
+}
+
 .cardText p {
    margin: var(--spacing) 0;
    font-size: var(--text-sm);

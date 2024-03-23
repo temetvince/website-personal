@@ -1,5 +1,3 @@
-import "./Link.css";
-
 import React from "react";
 import LinkProps from "./LinkProps";
 
