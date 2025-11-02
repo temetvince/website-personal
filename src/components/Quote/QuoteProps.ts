@@ -1,4 +1,4 @@
 export default interface QuoteProps {
-   className?: string;
-   quote: string;
+  className?: string;
+  quote: string;
 }

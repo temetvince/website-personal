@@ -1,6 +1,6 @@
 export default interface CardImgProps {
-   className?: string;
-   src: string;
-   alt: string;
-   width: string;
+  className?: string;
+  src: string;
+  alt: string;
+  width: string;
 }

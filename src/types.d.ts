@@ -1,2 +1,9 @@
-declare module "*.JPG";
-declare module "*.jpg";
+declare module '*.JPG' {
+  const content: string;
+  export default content;
+}
+
+declare module '*.jpg' {
+  const content: string;
+  export default content;
+}

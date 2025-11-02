@@ -1,5 +1,5 @@
-import LinkProps from "../Link/LinkProps";
+import LinkProps from '../Link/LinkProps';
 
 export default interface HeaderProps {
-   navItems: LinkProps[];
+  navItems: LinkProps[];
 }
