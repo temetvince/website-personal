@@ -20,6 +20,7 @@ module.exports = {
     open: true,
     hot: true,
     liveReload: true,
+    historyApiFallback: true,
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
@@ -36,7 +37,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(JPG|jpg|png)$/,
+        test: /\.(JPEG|jpeg|JPG|jpg|PNG|png)$/,
         use: ['url-loader'],
       },
     ],
