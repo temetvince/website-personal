@@ -1,16 +1,14 @@
-# A template for new web projects
+# My Personal Website
 
-### Stack
-* Typescript
-* React
-* Webpack
-* Babel
-* ESLint
-* Prettier
-* PrimeReact
-* PrimeIcons
-* PrimeFlex
+## Running Locally
+To run the website locally, use the following commands:
+* <code>$ npm install</code>
+* <code>$ npm start</code>
 
-### Updates
+## Building for Production
+To build the website for production, use the following command:
+* <code>$ npm run build</code>
+
+## Updates
 Updating provided by npm-check-updates:
 * <code>$ npm run update</code>
