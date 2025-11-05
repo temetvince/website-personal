@@ -6,7 +6,7 @@ import HeaderProps from './HeaderProps';
 
 export default function Header(props: HeaderProps) {
   return (
-    <header>
+    <header className={props.className || ''}>
       {props.navItems.map((item) =>
         item.path.startsWith('http') ?
           <a

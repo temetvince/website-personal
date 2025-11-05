@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 :root {
+  --max-width: 1300px;
+  --min-width: 386px;
+
   --font-primary: 'Oswald', sans-serif;
 
   --text-xl: 2rem;
@@ -164,7 +167,7 @@ button {
   text-decoration: none;
   border: var(--border-size) var(--border-style) var(--border-color);
   background: var(--background-alt);
-  color: var(--text-color);
+  color: var(--text-color-alt);
   border-radius: var(--box-rounding);
   font-weight: bold;
   font-size: larger;
@@ -176,4 +179,15 @@ button {
 button:hover {
   color: var(--hover-color);
   border-color: var(--border-color-alt);
+}
+
+.app {
+  min-width: var(--min-width);
+  max-width: var(--max-width);
+  margin: auto;
+  padding: var(--spacing);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: justify;
 }

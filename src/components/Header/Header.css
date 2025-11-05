@@ -5,11 +5,11 @@ header {
   align-items: center;
   justify-content: end;
   font-size: var(--text-sm);
-  border: 1px solid var(--border-color-alt);
+  border: var(--border-size) var(--border-style) var(--border-color-alt);
   border-radius: var(--box-rounding);
   box-shadow: var(--box-shadow);
-  margin: var(--spacing);
   height: calc(var(--text-md) + var(--spacing));
+  width: 100%;
 }
 
 header a {
@@ -32,5 +32,9 @@ header a:hover {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+  }
+
+  header a {
+    margin-right: 0;
   }
 }
