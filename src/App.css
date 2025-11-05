@@ -107,11 +107,6 @@ body {
     350px 350px,
     250px 250px,
     150px 150px;
-  background-position:
-    0 0,
-    40px 60px,
-    130px 270px,
-    70px 100px;
 }
 
 ul {
@@ -184,10 +179,8 @@ button:hover {
 .app {
   min-width: var(--min-width);
   max-width: var(--max-width);
-  margin: auto;
-  padding: var(--spacing);
-  display: flex;
-  flex-direction: column;
+  width: 100%;
   min-height: 100vh;
+  margin: auto;
   text-align: justify;
 }

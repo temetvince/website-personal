@@ -271,6 +271,10 @@
     gap: var(--spacing-less);
   }
 
+  .divider {
+    padding: var(--spacing) var(--spacing);
+  }
+
   .header-text h1 {
     font-size: 2.2rem;
   }
