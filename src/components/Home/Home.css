@@ -195,7 +195,6 @@
   color: var(--text-color-alt);
   font-weight: bold;
   text-align: center;
-  transition: var(--transition);
   text-decoration: none;
 }
 
@@ -218,7 +217,6 @@
   border: var(--border-size) solid var(--global-dark-grey);
   border-radius: var(--box-rounding);
   padding: var(--spacing);
-  transition: var(--transition);
   text-decoration: none;
   color: inherit;
 }
