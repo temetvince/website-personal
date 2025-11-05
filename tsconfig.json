@@ -20,6 +20,6 @@
     "typeRoots": ["./node_modules/@types", "./src/**/@types"],
     "sourceMap": true,
   },
-  "include": ["src/**/*.ts*", "src/index.js"],
+  "include": ["src/**/*.ts*", "src/index.js", "webpack.config.js"],
   "exclude": ["node_modules", "src/**/*.spec.*ts*", "public"]
 }
