@@ -28,7 +28,6 @@
     "@babel/preset-react": "7.x",
     "@babel/preset-typescript": "7.x",
     "@types/lodash": "4.x",
-    "@types/p5": "1.x",
     "@types/react": "19.x",
     "@types/react-dom": "19.x",
     "babel-loader": "10.x",
@@ -48,7 +47,6 @@
     "webpack-dev-server": "5.x"
   },
   "dependencies": {
-    "@p5-wrapper/react": "4.x",
     "react": "18.x",
     "react-dom": "18.x",
     "react-router-dom": "6.x"
