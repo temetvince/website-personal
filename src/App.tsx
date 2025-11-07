@@ -7,11 +7,11 @@ import ECSDemo from './ecs/ECSDemo';
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <div className='screen'>
-        <div id='ecs-demo'>
-          <ECSDemo transparency={0.2} />
-        </div>
+    <div className='screen'>
+      <div id='ecs-demo'>
+        <ECSDemo transparency={0.2} />
+      </div>
+      <BrowserRouter>
         <div className='app'>
           <Routes>
             <Route
@@ -20,7 +20,7 @@ export default function App() {
             />
           </Routes>
         </div>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </div>
   );
 }
