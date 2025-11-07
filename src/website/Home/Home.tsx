@@ -163,7 +163,7 @@ const Home: React.FC = () => {
           <h3>Fun Projects</h3>
           <div className='projects-grid'>
             <a
-              href='https://temetvince.github.io/typescript-ecs/'
+              href='https://github.com/temetvince/typescript-ecs/'
               target='_blank'
               rel='noopener noreferrer'
               className='project-card'
@@ -175,7 +175,7 @@ const Home: React.FC = () => {
               </p>
             </a>
             <a
-              href='https://temetvince.github.io/particle-engine/'
+              href='https://github.com/temetvince/particle-engine/'
               target='_blank'
               rel='noopener noreferrer'
               className='project-card'
@@ -187,7 +187,7 @@ const Home: React.FC = () => {
               </p>
             </a>
             <a
-              href='https://temetvince.github.io/art-grid/'
+              href='https://github.com/temetvince/art-grid/'
               target='_blank'
               rel='noopener noreferrer'
               className='project-card'
@@ -200,7 +200,7 @@ const Home: React.FC = () => {
               </p>
             </a>
             <a
-              href='https://temetvince.github.io/wormhole-primer/'
+              href='https://github.com/temetvince/wormhole-primer/'
               target='_blank'
               rel='noopener noreferrer'
               className='project-card'
