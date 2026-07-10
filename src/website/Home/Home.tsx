@@ -1,17 +1,21 @@
 import './Home.css';
 
+import { Fragment } from 'react';
+
 import profileImg from '../../../public/IMG_0081.JPG';
 import ContactForm from '../ContactForm/ContactForm';
 import Header from '../Header/Header';
 import Hero from '../Hero/Hero';
+import Masthead from '../Masthead/Masthead';
 import ServiceGrid from '../ServiceGrid/ServiceGrid';
 import * as content from './HomeContent';
 
 /**
- * The complete landing page for elcasey.com: hero, credibility strip, story,
- * services, approach, experience highlights, trust signals, and contact form.
- * All copy and section data come from {@link module:HomeContent} and are
- * passed down to purely presentational components; this module only composes.
+ * The complete landing page for elcasey.com, set as a newspaper front page:
+ * masthead, lead story, credibility strip, story, services, approach,
+ * experience highlights, trust signals, and contact form. All copy and
+ * section data come from {@link module:HomeContent} and are passed down to
+ * purely presentational components; this module only composes.
  *
  * Sections alternate between the base and `section-alt` backgrounds. Adding
  * or removing one means re-checking that no two `section-alt` bands end up
@@ -26,11 +30,18 @@ export default function Home() {
         cta={content.headerCta}
       />
       <main>
+        <Masthead
+          title={content.mastheadTitle}
+          tagline={content.mastheadTagline}
+          dateline={content.dateline}
+        />
+
         <Hero
-          headline='Big-league experience. Midwest practicality.'
+          headline='Big-league experience. Hometown practicality.'
           subheadline={content.heroSubheadline}
           photoSrc={profileImg}
           photoAlt='Emmett Casey'
+          photoCaption={content.heroPhotoCaption}
           primaryCta={content.heroPrimaryCta}
           secondaryCta={content.heroSecondaryCta}
           note='Based in Joplin, Missouri · Serving the four-state region and beyond'
@@ -51,35 +62,53 @@ export default function Home() {
         >
           <div className='section-inner'>
             <h2>My Story</h2>
-            <div className='prose'>
-              <p>
-                I've spent my career building software where the stakes are
-                high. I led a team at Garmin. I engineered and taught at Cerner,
-                where I helped train hundreds of new software engineers. I built
-                clinical software for Children's National Hospital through the
-                Oracle Bear Institute of Technology. And I consulted for clients
-                at Artisan Technology Group as a senior engineer and engineering
-                manager.
-              </p>
-              <p>
-                Those places taught me what good engineering actually looks
-                like: systems that hold up in production, decisions that get
-                written down, and teams that communicate clearly — because in a
-                hospital, "it mostly works" isn't good enough.
-              </p>
-              <p>
-                In 2024 I stepped away from full-time work to care for my
-                grandfather during his final months. It was the most important
-                work I've ever done, and it settled what I want the next chapter
-                to be: doing genuinely useful work for people close to home.
-              </p>
-              <p>
-                That's what this practice is. I bring the rigor of the big
-                organizations to the businesses that keep this region running —
-                without the bureaucracy, the buzzwords, or the over-engineering.
-                I listen first, build what's needed, write it down, and leave
-                your team better than I found it.
-              </p>
+            <p className='byline'>By Emmett Casey</p>
+            <div className='story'>
+              <div className='story-main prose'>
+                <p>
+                  I've spent my career building software where the stakes are
+                  high. I led a team at Garmin. I engineered and taught at
+                  Cerner, where I helped train hundreds of new software
+                  engineers. I built clinical software for Children's National
+                  Hospital through the Oracle Bear Institute of Technology. And
+                  I consulted for clients at Artisan Technology Group as a
+                  senior engineer and engineering manager.
+                </p>
+                <p>
+                  Those places taught me what good engineering actually looks
+                  like: systems that hold up in production, decisions that get
+                  written down, and teams that communicate clearly — because in
+                  a hospital, "it mostly works" isn't good enough.
+                </p>
+                <p>
+                  In 2024 I stepped away from full-time work to care for my
+                  grandfather during his final months. It was the most important
+                  work I've ever done, and it settled what I want the next
+                  chapter to be: doing genuinely useful work for people close to
+                  home.
+                </p>
+                <blockquote className='pull-quote'>
+                  <p>{content.pullQuote}</p>
+                </blockquote>
+                <p>
+                  That's what this practice is. I bring the rigor of the big
+                  organizations to the businesses that keep this region running
+                  — without the bureaucracy, the buzzwords, or the
+                  over-engineering. I listen first, build what's needed, write
+                  it down, and leave your team better than I found it.
+                </p>
+              </div>
+              <aside className='card story-aside'>
+                <h3>At a Glance</h3>
+                <dl>
+                  {content.factBox.map((fact) => (
+                    <Fragment key={fact.label}>
+                      <dt>{fact.label}</dt>
+                      <dd>{fact.value}</dd>
+                    </Fragment>
+                  ))}
+                </dl>
+              </aside>
             </div>
           </div>
         </section>
@@ -113,12 +142,7 @@ export default function Home() {
                   key={step.title}
                   className='card'
                 >
-                  <span
-                    className='approach-step-number'
-                    aria-hidden='true'
-                  >
-                    {index + 1}
-                  </span>
+                  <p className='eyebrow'>No. {index + 1}</p>
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>
                 </li>
@@ -138,14 +162,14 @@ export default function Home() {
             </p>
             <div className='card-grid'>
               {content.highlights.map((highlight) => (
-                <div
+                <article
                   key={highlight.org + highlight.role}
                   className='card'
                 >
                   <p className='eyebrow'>{highlight.org}</p>
                   <h3>{highlight.role}</h3>
                   <p>{highlight.text}</p>
-                </div>
+                </article>
               ))}
             </div>
           </div>
@@ -162,13 +186,13 @@ export default function Home() {
             </p>
             <div className='card-grid'>
               {content.trustSignals.map((signal) => (
-                <div
+                <article
                   key={signal.title}
                   className='card'
                 >
                   <h3>{signal.title}</h3>
                   <p>{signal.text}</p>
-                </div>
+                </article>
               ))}
             </div>
           </div>

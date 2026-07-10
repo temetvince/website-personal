@@ -1,38 +1,40 @@
 .hero {
-  background:
-    radial-gradient(
-      60rem 30rem at 15% 0%,
-      rgba(95, 185, 138, 0.08),
-      transparent 70%
-    ),
-    linear-gradient(165deg, var(--hero-from), var(--hero-to));
-  border-bottom: 1px solid var(--border-subtle);
-  padding: var(--space-6) var(--gutter);
+  background: var(--paper);
+  padding: var(--space-4) var(--gutter) var(--space-5);
+  border-bottom: 1px solid var(--rule);
 }
 
 .hero-inner {
   max-width: var(--page-width);
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-5);
-}
-
-/* Held to the same measure as body prose, so the headline and the sections
-   below it break against one another consistently. */
-.hero-text {
-  flex: 0 1 var(--measure);
 }
 
 .hero h1 {
-  font-size: clamp(2.1rem, 4.5vw, 3.1rem);
-  margin-bottom: var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 5.2vw, 3.8rem);
+  text-align: center;
+  text-wrap: balance;
+  margin-bottom: var(--space-4);
 }
 
-.hero-subheadline {
-  color: var(--text-secondary);
-  font-size: 1.15rem;
+.hero-body {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  border-top: 1px solid var(--rule-soft);
+  padding-top: var(--space-4);
+}
+
+.hero-text {
+  flex: 1 1 auto;
+  max-width: var(--measure);
+}
+
+.hero-deck {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--ink-soft);
   margin-bottom: var(--space-4);
 }
 
@@ -44,32 +46,49 @@
 
 .hero-note {
   margin-top: var(--space-3);
-  font-size: 0.9rem;
-  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
 }
 
+.hero-figure {
+  flex: 0 0 19rem;
+  max-width: 100%;
+}
+
+/* Photographs run as halftones in print. Desaturating the portrait is what
+   keeps it from reading as a color web image pasted onto a newspaper. The
+   night edition pulls `--photo-brightness` down so it does not glare against
+   the dark sheet. */
 .hero-photo {
-  flex: 0 0 auto;
-  width: min(19rem, 70vw);
+  width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-strong);
+  border: 1px solid var(--rule);
+  filter: grayscale(100%) contrast(1.05) brightness(var(--photo-brightness));
+}
+
+.hero-figure figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  margin-top: 0.5rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--rule-soft);
 }
 
 @media (max-width: 860px) {
-  .hero {
-    padding: var(--space-5) var(--gutter);
-  }
-
-  .hero-inner {
+  .hero-body {
     flex-direction: column-reverse;
-    gap: var(--space-4);
-    text-align: center;
+    align-items: stretch;
   }
 
-  .hero-actions {
-    justify-content: center;
+  .hero-figure {
+    flex: 0 0 auto;
+    align-self: center;
+    width: min(19rem, 100%);
   }
 }

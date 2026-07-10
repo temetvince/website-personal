@@ -1,9 +1,6 @@
 .service-icon {
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 1.9rem;
+  height: 1.9rem;
   color: var(--accent);
-  background: var(--accent-wash);
-  border-radius: var(--radius);
-  padding: 0.45rem;
   margin-bottom: var(--space-2);
 }

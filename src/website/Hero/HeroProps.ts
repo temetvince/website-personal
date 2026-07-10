@@ -7,12 +7,14 @@
 export default interface HeroProps {
   /** Main headline, rendered as the page's only `h1`. */
   readonly headline: string;
-  /** Supporting paragraph rendered beneath the headline. */
+  /** Supporting passage rendered beneath the headline as the deck. */
   readonly subheadline: string;
   /** Resolved image URL for the portrait photo. */
   readonly photoSrc: string;
   /** Alt text describing the portrait photo. */
   readonly photoAlt: string;
+  /** Caption printed beneath the photo, in the manner of a press cutline. */
+  readonly photoCaption: string;
   /** Primary call-to-action link (e.g. an anchor to the contact section). */
   readonly primaryCta: {
     readonly label: string;

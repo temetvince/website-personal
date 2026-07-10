@@ -12,6 +12,55 @@
  */
 export const contactFormAction = 'https://formspree.io/f/YOUR_FORM_ID';
 
+/** Name set in display type across the top of the page. */
+export const mastheadTitle = 'Emmett Casey';
+
+/** Standing tagline printed beneath the masthead title. */
+export const mastheadTagline =
+  'Custom Software · Integrations · Technical Leadership';
+
+/**
+ * Dateline entries beneath the masthead, distributed left, center, and right.
+ * Every entry is a standing fact, not a dated one — nothing here needs
+ * maintaining as time passes.
+ */
+export const dateline = [
+  'Joplin, Missouri',
+  'Serving the Four-State Region',
+  'Now Booking Discovery Calls',
+] as const;
+
+/** Cutline printed beneath the hero portrait. */
+export const heroPhotoCaption = 'Emmett Casey — Joplin, Missouri';
+
+/**
+ * A line lifted verbatim from the closing paragraph of the story and set as a
+ * pull quote. Keep it identical to the sentence it quotes — a pull quote that
+ * paraphrases its own article is a mistake, not a flourish.
+ */
+export const pullQuote =
+  "I listen first, build what's needed, write it down, and leave your team better than I found it.";
+
+/** Standing sidebar printed beside the story, in display order. */
+export const factBox = [
+  { label: 'Based in', value: 'Joplin, Missouri' },
+  {
+    label: 'Education',
+    value:
+      'B.S. Computer Science, minor in Mathematics — University of Arkansas',
+  },
+  {
+    label: 'Previously',
+    value: 'Garmin · Cerner · Oracle · Artisan Technology Group',
+  },
+  {
+    label: 'Practice',
+    value:
+      'Custom software, integrations, cloud, and technical leadership for Midwest businesses',
+  },
+  { label: 'Availability', value: 'Booking discovery calls' },
+] as const;
+
 /** Anchor links for the sticky header, in display order. */
 export const navItems = [
   { label: 'About', path: '#about' },

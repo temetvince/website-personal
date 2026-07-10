@@ -1,8 +1,12 @@
+/* Set like a boxed classified: a ruled frame on lifted stock. */
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
   max-width: var(--measure);
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  padding: var(--space-3);
 }
 
 .contact-form-row {
@@ -22,21 +26,27 @@
 }
 
 .contact-form-field label {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--text-heading);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
 }
 
-/* Inputs read as recessed: darker than the page, not lifted like a card. */
 .contact-form-field input,
 .contact-form-field textarea {
   font-family: var(--font-body);
   font-size: 1rem;
-  color: var(--text-primary);
-  background: var(--surface-sunken);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius);
-  padding: 0.65rem 0.8rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--rule-soft);
+  padding: 0.6rem 0.7rem;
+}
+
+.contact-form-field input:focus,
+.contact-form-field textarea:focus {
+  border-color: var(--ink);
 }
 
 .contact-form-field textarea {

@@ -1,0 +1,59 @@
+.masthead {
+  background: var(--paper);
+  padding: var(--space-4) var(--gutter) 0;
+  text-align: center;
+}
+
+.masthead-inner {
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
+
+.masthead-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+.masthead-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: var(--space-2);
+}
+
+/* The dateline sits between a hairline and a double rule — the standard
+   nameplate treatment, and the detail that reads as "newspaper" without any
+   costume. */
+.masthead-dateline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-3);
+  list-style: none;
+  margin-top: var(--space-3);
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 3px double var(--rule);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 720px) {
+  .masthead-dateline {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .masthead-tagline {
+    letter-spacing: 0.18em;
+  }
+}

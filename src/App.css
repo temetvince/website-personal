@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@700;900&display=swap');
 
+/* The site prints in two editions, day and night, and follows the reader's
+   system preference. Everything theme-dependent is a custom property declared
+   twice — once here for the day edition, once in the media block below for the
+   night edition. Anything that hardcodes a color outside these two blocks will
+   only half-swap. */
 :root {
-  /* The design is dark-only. Declaring the scheme gives form controls,
-     scrollbars, and the canvas matching UA styling, and stops browser
-     auto-dark features from inverting an already-dark palette. */
-  color-scheme: dark;
+  color-scheme: light;
 
   /* Layout rhythm. Every band on the page is `--page-width` wide inside
      `--gutter` padding, so section headings, cards, and hero text all share
@@ -15,47 +17,13 @@
   --gutter: 1.5rem;
   --measure: 40rem;
 
-  --font-body:
-    'Inter', -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  --font-heading: 'Lora', Georgia, 'Times New Roman', serif;
-
-  /* Surfaces, ordered by elevation. Cards lift off the page by lightness,
-     not just by their border. */
-  --surface-sunken: #0a121a;
-  --surface-base: #0e1822;
-  --surface-alt: #131f2b;
-  --surface-raised: #17242f;
-
-  /* The hero reads as its own plane: lighter at the top, sinking into the
-     page background at the fold. */
-  --hero-from: #1c3145;
-  --hero-to: #0c141d;
-
-  --border-subtle: #22323f;
-  --border-strong: #35495c;
-
-  /* Warm off-whites over cool navy surfaces — the warmth the palette needs
-     lives in the type, not the background. */
-  --text-heading: #f3f0ea;
-  --text-primary: #dee4e9;
-  --text-secondary: #9aa7b4;
-
-  /* Forest green, brightened for legibility on dark. Foreground and fill are
-     separate roles and are not interchangeable: the `--accent*` pair is drawn
-     as text or icons on a surface, the `--accent-strong*` pair is a fill
-     behind `--on-accent` text. Every combination clears WCAG AA (4.5:1) —
-     hover included, which is why hover lightens the fill only slightly. */
-  --accent: #5fb98a;
-  --accent-bright: #8ad3a8;
-  --accent-strong: #2f7a52;
-  --accent-strong-hover: #337f56;
-  --accent-wash: rgba(95, 185, 138, 0.12);
-  --on-accent: #f7faf8;
-
-  --radius: 8px;
-  --radius-lg: 14px;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.45);
+  /* Three faces, three jobs, no overlap. Display sets headlines and the
+     masthead; body carries every passage meant to be read; mono is reserved
+     for the furniture — datelines, labels, captions, buttons. Setting running
+     text in mono is what tips a newspaper pastiche into costume. */
+  --font-display: 'Playfair Display', 'Times New Roman', Times, serif;
+  --font-body: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-mono: 'Courier Prime', 'Courier New', Courier, monospace;
 
   --space-1: 0.5rem;
   --space-2: 1rem;
@@ -63,6 +31,76 @@
   --space-4: 2.5rem;
   --space-5: 4rem;
   --space-6: 6rem;
+
+  /* Day edition — newsprint: a warm, slightly yellowed white. `--paper-sunken`
+     is the darkest stock and `--paper-raised` the lightest, so boxed items sit
+     above the sheet and the strips sink below it. */
+  --paper: #f7f3e8;
+  --paper-alt: #f1ebdd;
+  --paper-sunken: #e9e2d1;
+  --paper-raised: #fcfaf4;
+
+  /* Ink, warmed so it never reads as pure digital black. `--ink-faint` is set
+     dark enough to clear WCAG AA against `--paper-sunken`, the darkest stock
+     it prints on — lightening it toward the muted gray it wants to be would
+     fail the credibility strip. */
+  --ink: #1b1a17;
+  --ink-soft: #4a453c;
+  --ink-faint: #655f52;
+
+  /* Rules: `--rule` is a printed hairline, `--rule-soft` a light separator.
+     Always draw rules with these, never with `--ink` — at night the ink is
+     near-white and a hairline at full strength glares. */
+  --rule: #1b1a17;
+  --rule-soft: #cbc3ae;
+
+  /* One spot color, used sparingly the way a press runs a second ink. By day
+     the green is the dark element and the type on it is light. */
+  --accent: #2f5d40;
+  --accent-hover: #23472f;
+  --on-accent: #f7f3e8;
+
+  --header-bg: rgba(247, 243, 232, 0.94);
+  --photo-brightness: 1.02;
+}
+
+/* Night edition. It serves three readers: those whose system asks for dark,
+   those who ask for more contrast, and those whose OS forces its own colors.
+   The latter two get the dark sheet by choice — a high-contrast reader is
+   better served by light ink on dark stock than by the bright page.
+   Under `forced-colors` the OS substitutes its own palette for most of these
+   values regardless; `color-scheme: dark` is what it actually honors. */
+@media (prefers-color-scheme: dark),
+  (prefers-contrast: more),
+  (forced-colors: active) {
+  :root {
+    color-scheme: dark;
+
+    /* The stock: warm near-blacks, never a neutral gray. */
+    --paper: #1a1815;
+    --paper-alt: #201e19;
+    --paper-sunken: #121110;
+    --paper-raised: #24221d;
+
+    /* The ink, warmed so it reads as newsprint rather than a monitor's white.
+       `--ink-faint` is set light enough to clear WCAG AA against
+       `--paper-raised`, the lightest stock it prints on. */
+    --ink: #f2ece0;
+    --ink-soft: #c2baa8;
+    --ink-faint: #948c7b;
+
+    --rule: #7d7666;
+    --rule-soft: #3a3730;
+
+    /* At night the roles invert: the green is the bright element and the type
+       sitting on it is dark. */
+    --accent: #6cbf8f;
+    --accent-hover: #8ad2a6;
+    --on-accent: #14130f;
+
+    --header-bg: rgba(26, 24, 21, 0.94);
+    --photo-brightness: 0.9;
+  }
 }
 
 /* Narrowing the gutter once here re-flows the header, hero, every section,
@@ -92,11 +130,11 @@ html {
 }
 
 body {
-  background: var(--surface-base);
-  color: var(--text-primary);
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--font-body);
   font-size: 1.0625rem;
-  line-height: 1.65;
+  line-height: 1.62;
   min-height: 100%;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -107,20 +145,20 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-heading);
-  color: var(--text-heading);
-  line-height: 1.2;
-  font-weight: 600;
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: 1.15;
+  font-weight: 700;
 }
 
 a {
   color: var(--accent);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 a:hover {
-  color: var(--accent-bright);
-  text-decoration: underline;
+  color: var(--accent-hover);
 }
 
 a:focus-visible,
@@ -140,18 +178,21 @@ img {
   min-height: 100vh;
 }
 
-/* Shared button styles: green primary, quiet outlined secondary. */
+/* Buttons are set in mono, like a classified-ad rule box: square corners,
+   no shadow, nothing that betrays the print conceit. */
 .button {
   display: inline-block;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   line-height: 1;
-  padding: 0.9rem 1.6rem;
-  border-radius: var(--radius);
-  border: 2px solid transparent;
+  padding: 0.95rem 1.5rem;
+  border: 1px solid transparent;
   cursor: pointer;
   text-align: center;
+  text-decoration: none;
 }
 
 .button:hover {
@@ -159,45 +200,46 @@ img {
 }
 
 .button-primary {
-  background: var(--accent-strong);
+  background: var(--accent);
   color: var(--on-accent);
+  border-color: var(--accent);
 }
 
 .button-primary:hover {
-  background: var(--accent-strong-hover);
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
   color: var(--on-accent);
 }
 
 .button-secondary {
   background: transparent;
-  color: var(--text-primary);
-  border-color: var(--border-strong);
+  color: var(--ink);
+  border-color: var(--rule);
 }
 
 .button-secondary:hover {
-  background: var(--surface-raised);
-  color: var(--text-heading);
-  border-color: var(--accent);
+  background: var(--ink);
+  color: var(--paper);
 }
 
-/* One card shell for every grid on the page. Content differentiates the
-   cards; the container never does. */
+/* One boxed-item shell for every grid on the page: hairline rules, a heavy
+   top rule, square corners. Content differentiates the boxes; the container
+   never does. */
 .card {
-  background: var(--surface-raised);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
+  background: var(--paper-raised);
+  border: 1px solid var(--rule-soft);
+  border-top: 3px solid var(--rule);
   padding: var(--space-3);
-  box-shadow: var(--shadow-sm);
 }
 
 .card h3 {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   margin-bottom: var(--space-1);
 }
 
 .card p {
-  color: var(--text-secondary);
-  font-size: 0.98rem;
+  color: var(--ink-soft);
+  font-size: 0.96rem;
 }
 
 /* Shared card grid. Override `--card-min` to change the column count; the
@@ -209,12 +251,13 @@ img {
   list-style: none;
 }
 
-/* Small uppercase accent label above a card heading. */
+/* Small mono label above a heading — a kicker, in newspaper terms. */
 .eyebrow {
-  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.35rem;
 }

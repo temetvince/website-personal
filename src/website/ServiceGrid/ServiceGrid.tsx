@@ -3,15 +3,15 @@ import './ServiceGrid.css';
 import type ServiceGridProps from './ServiceGridProps';
 
 /**
- * Responsive grid of service cards, each with a line icon, title, and
- * description. Icons are decorative and hidden from assistive technology;
- * the title carries the meaning.
+ * Responsive grid of service cards, each with a line icon, headline, and
+ * passage. Icons are decorative and hidden from assistive technology; the
+ * headline carries the meaning.
  */
 export default function ServiceGrid(props: ServiceGridProps) {
   return (
     <div className='card-grid'>
       {props.services.map((service) => (
-        <div
+        <article
           key={service.title}
           className='card'
         >
@@ -34,7 +34,7 @@ export default function ServiceGrid(props: ServiceGridProps) {
           </svg>
           <h3>{service.title}</h3>
           <p>{service.description}</p>
-        </div>
+        </article>
       ))}
     </div>
   );
