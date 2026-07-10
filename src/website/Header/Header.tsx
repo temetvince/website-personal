@@ -1,12 +1,11 @@
 import './Header.css';
 
-import React from 'react';
 import { Link } from 'react-router-dom';
-import HeaderProps from './HeaderProps';
+import type HeaderProps from './HeaderProps';
 
 export default function Header(props: HeaderProps) {
   return (
-    <header className={props.className || ''}>
+    <header className={props.className ?? ''}>
       {props.navItems.map((item) =>
         item.path.startsWith('http') ?
           <a

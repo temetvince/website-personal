@@ -1,4 +1,4 @@
 export default interface LinkProps {
-  label: string;
-  path: string;
+  readonly label: string;
+  readonly path: string;
 }

@@ -1,5 +1,4 @@
-import React from 'react';
-import LinkProps from './LinkProps';
+import type LinkProps from './LinkProps';
 
 export default function Link(props: LinkProps) {
   return (

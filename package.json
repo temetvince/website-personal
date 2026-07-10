@@ -4,10 +4,13 @@
   "private": true,
   "scripts": {
     "start": "npm run build && webpack-dev-server",
-    "build": "npm run lint && npm run format && tsc && webpack",
-    "lint": "eslint \"src/**/*.{cjs,mjs,js,jsx,ts,tsx,mts,cts}\" --quiet --fix",
+    "build": "npm run lint && npm run format && npm run docs && npm run typecheck && webpack",
+    "typecheck": "tsc",
+    "lint": "oxlint --fix src",
+    "lint:fix": "oxlint --fix --fix-suggestions src",
+    "docs": "markdownlint-cli2 --fix \"**/*.md\" \"!node_modules\"",
     "format": "prettier --write \"src/**/*.{cjs,mjs,js,jsx,ts,tsx,mts,cts,json,html,css}\"",
-    "update": "ncu -u --peer --reject typescript"
+    "update": "ncu -u --peer"
   },
   "browserslist": {
     "production": [
@@ -32,15 +35,16 @@
     "@types/react-dom": "19.x",
     "babel-loader": "10.x",
     "css-loader": "7.x",
-    "eslint": "10.6.x",
     "favicons": "7.x",
     "favicons-webpack-plugin": "6.x",
     "html-webpack-plugin": "5.x",
+    "markdownlint-cli2": "0.23.x",
     "npm-check-updates": "22.x",
+    "oxlint": "1.x",
+    "oxlint-tsgolint": "0.24.x",
     "prettier": "3.x",
     "style-loader": "4.x",
-    "typescript": "6.x",
-    "typescript-eslint": "8.x",
+    "typescript": "7.x",
     "url-loader": "4.x",
     "webpack": "5.x",
     "webpack-cli": "7.x",

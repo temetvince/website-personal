@@ -1,4 +1,7 @@
 export default interface HeaderProps {
-  className?: string;
-  navItems: { label: string; path: string }[];
+  readonly className?: string;
+  readonly navItems: readonly {
+    readonly label: string;
+    readonly path: string;
+  }[];
 }
