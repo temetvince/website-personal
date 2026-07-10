@@ -69,6 +69,7 @@
   max-width: 800px;
   margin: 0 auto;
   color: var(--global-light);
+  text-align: justify;
 }
 
 .home-tagline strong {
