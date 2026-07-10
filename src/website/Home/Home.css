@@ -1,291 +1,152 @@
-.home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing);
-  border-radius: var(--box-rounding);
-  width: 100%;
-  justify-content: center;
-  margin: auto;
-  padding: var(--spacing);
+section[id] {
+  scroll-margin-top: 5rem;
 }
 
-.home-header-container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing);
-  align-items: center;
-  width: 100%;
-  border: var(--border-size) var(--border-style) var(--border-color);
-  border-radius: var(--box-rounding);
-  padding: var(--spacing);
+.section {
+  padding: var(--space-5) var(--gutter);
 }
 
-.home-header {
-  position: relative;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  gap: var(--spacing-more);
+.section-alt {
+  background: var(--surface-alt);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-.header-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing);
-}
-
-.profile-img {
-  max-width: 15rem;
-  border: var(--border-size) var(--border-style) var(--border-color-alt);
-  border-radius: var(--box-rounding);
-  object-fit: cover;
-  box-shadow: var(--box-shadow);
-}
-
-.header-text h1 {
-  font-size: 2.8rem;
-  color: var(--text-color);
-  margin: 0;
-  letter-spacing: 0.5px;
-}
-
-.header-text h2 {
-  font-size: var(--text-lg);
-  color: var(--text-color-alt);
-  font-weight: normal;
-  margin: var(--spacing-less) 0;
-}
-
-.home-tagline {
-  border-top: var(--border-size) var(--border-style) var(--global-dark-grey);
-  padding: var(--spacing);
-  font-size: var(--text-md);
-  line-height: 1.7;
-  max-width: 800px;
+.section-inner {
+  max-width: var(--page-width);
   margin: 0 auto;
-  color: var(--global-light);
-  text-align: justify;
 }
 
-.home-tagline strong {
-  color: var(--secondary-color);
-  font-weight: 600;
+.section h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  margin-bottom: var(--space-2);
 }
 
-.divider {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-more);
-  width: 100%;
-  border: var(--border-size) var(--border-style) var(--border-color);
-  border-radius: var(--box-rounding);
-  padding: var(--spacing-more);
-}
-
-.home-about,
-.home-philosophy,
-.home-skills,
-.home-links,
-.home-projects {
-  width: 100%;
-  max-width: 900px;
-}
-
-.home-about h3,
-.home-philosophy h3,
-.home-skills h3,
-.home-links h3,
-.home-projects h3 {
-  font-size: 1.8rem;
-  color: var(--text-color);
-  text-align: center;
-  margin-bottom: var(--spacing);
-  position: relative;
-}
-
-.home-about h3::after,
-.home-philosophy h3::after,
-.home-skills h3::after,
-.home-links h3::after,
-.home-projects h3::after {
+.section h2::after {
   content: '';
   display: block;
-  width: 3.75rem; /* 60px */
-  height: 0.1875rem; /* 3px */
-  background: var(--secondary-color);
-  margin: var(--spacing-less) auto 0;
-  border-radius: 0.125rem; /* 2px */
+  width: 3.5rem;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin-top: 0.6rem;
 }
 
-.home-about p {
-  font-size: var(--text-md);
-  line-height: 1.8;
-  margin-bottom: var(--spacing);
-  color: var(--global-light);
+/* Prose is held to a readable measure but stays flush with the section's
+   left edge — it is never centered in a narrower container. */
+.prose {
+  max-width: var(--measure);
 }
 
-.personal-note {
-  font-style: italic;
-  color: var(--secondary-color);
-  text-align: center;
-  font-size: 1.1rem;
-  margin-top: var(--spacing);
+.prose p + p {
+  margin-top: var(--space-2);
 }
 
-.home-philosophy .philosophy-intro {
-  font-size: var(--text-md);
-  text-align: center;
-  margin-bottom: var(--spacing);
-  color: var(--global-light);
+.section-lede {
+  color: var(--text-secondary);
+  max-width: var(--measure);
+  margin-bottom: var(--space-4);
 }
 
-.home-philosophy .philosophy-list {
-  list-style: none;
-  padding: 0;
+/* Credibility strip */
+.credibility {
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing);
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--space-1) var(--space-3);
+  padding: var(--space-3) var(--gutter);
+  background: var(--surface-sunken);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-.home-philosophy li {
-  background: var(--background-alt);
-  border-left: calc(var(--border-size) * 2) solid var(--secondary-color); /* 4px */
-  padding: var(--spacing);
-  border-radius: var(--box-rounding);
-  color: var(--global-light);
-  line-height: 1.6;
+.credibility-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
 }
 
-.home-philosophy li strong {
-  color: var(--text-color);
-}
-
-.home-skills .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr)); /* 220px */
-  gap: var(--spacing);
-  margin-top: var(--spacing);
-}
-
-.links-list {
-  list-style: none;
-  padding: 0;
+.credibility-list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-1) var(--space-3);
+  list-style: none;
+}
+
+.credibility-list li {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+/* Approach steps — four across, so they need a narrower column than the
+   default card grid. */
+.approach-steps {
+  --card-min: 14rem;
+}
+
+.approach-step-number {
+  display: inline-flex;
   align-items: center;
-  gap: var(--spacing-less);
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--accent-strong);
+  color: var(--on-accent);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
 }
 
-.links-list li {
+/* Contact */
+.contact-lede {
+  margin-bottom: var(--space-3);
+}
+
+/* Footer */
+.site-footer {
+  background: var(--surface-sunken);
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: var(--space-4) var(--gutter);
+}
+
+.site-footer-inner {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 0.92rem;
+}
+
+.site-footer-links {
+  display: flex;
+  gap: var(--space-3);
+  list-style: none;
+}
+
+.site-footer-note {
   width: 100%;
-  max-width: 25rem; /* 400px */
+  font-size: 0.85rem;
 }
 
-.links-list a {
-  display: block;
-  padding: var(--spacing) var(--spacing-more);
-  background: var(--background-alt);
-  border: var(--border-size) solid var(--border-color);
-  border-radius: var(--box-rounding);
-  color: var(--text-color-alt);
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-}
-
-.links-list a:hover {
-  color: var(--hover-color);
-  border-color: var(--border-color-alt);
-  transform: translateY(-0.125rem); /* -2px */
-  box-shadow: var(--box-shadow);
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr)); /* 280px */
-  gap: var(--spacing);
-  margin-top: var(--spacing);
-}
-
-.project-card {
-  background: var(--background-alt);
-  border: var(--border-size) solid var(--global-dark-grey);
-  border-radius: var(--box-rounding);
-  padding: var(--spacing);
-  text-decoration: none;
-  color: inherit;
-}
-
-.project-card:hover {
-  border-color: var(--secondary-color);
-  transform: translateY(-0.25rem); /* -4px */
-  box-shadow: var(--box-shadow);
-}
-
-.project-card h4 {
-  color: var(--text-color);
-  margin-bottom: var(--spacing-less);
-  font-size: 1.2rem;
-}
-
-.project-card p {
-  color: var(--global-light);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.home-footer {
-  text-align: center;
-  border: var(--border-color-alt) var(--border-size) var(--border-style);
-  border-radius: var(--box-rounding);
-  color: var(--global-light-grey);
-  font-size: var(--text-sm);
-  width: 100%;
-  padding: var(--spacing-less);
-}
-
-.footer-note {
-  margin-top: var(--spacing-less);
-  font-style: italic;
-  color: var(--text-color-alt);
-}
-
-@media (max-width: 1241px) {
-  .home-header {
-    flex-direction: column;
-    gap: var(--spacing);
+@media (max-width: 720px) {
+  .section {
+    padding: var(--space-4) var(--gutter);
   }
-}
 
-/* Responsive */
-@media (max-width: 768px) {
-  .header-content {
+  .site-footer-inner {
     flex-direction: column;
     text-align: center;
-    gap: var(--spacing-less);
   }
 
-  .divider {
-    padding: var(--spacing) var(--spacing);
-  }
-
-  .header-text h1 {
-    font-size: 2.2rem;
-  }
-
-  .projects-grid,
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .home-philosophy .philosophy-list {
-    gap: var(--spacing-less);
+  .site-footer-note {
+    width: auto;
   }
 }

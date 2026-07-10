@@ -3,6 +3,10 @@ import Home from './website/Home/Home';
 
 import './App.css';
 
+/**
+ * Application root: installs the router and global styles, and mounts the
+ * single-page {@link Home} route at `/`. Must be rendered exactly once.
+ */
 export default function App() {
   return (
     <BrowserRouter>

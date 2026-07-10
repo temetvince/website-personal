@@ -1,201 +1,220 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap');
 
 :root {
-  --max-width: 1300px;
-  --min-width: 386px;
+  /* The design is dark-only. Declaring the scheme gives form controls,
+     scrollbars, and the canvas matching UA styling, and stops browser
+     auto-dark features from inverting an already-dark palette. */
+  color-scheme: dark;
 
-  --font-primary: 'Oswald', sans-serif;
+  /* Layout rhythm. Every band on the page is `--page-width` wide inside
+     `--gutter` padding, so section headings, cards, and hero text all share
+     one left edge. Prose is held to `--measure` inside that container rather
+     than being centered in a narrower one — narrowing the container is what
+     breaks the alignment. */
+  --page-width: 1120px;
+  --gutter: 1.5rem;
+  --measure: 40rem;
 
-  --text-xl: 2rem;
-  --text-lg: 1.8rem;
-  --text-md: 1.5rem;
-  --text-sm: 1.2rem;
-  --text-xs: 1rem;
+  --font-body:
+    'Inter', -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --font-heading: 'Lora', Georgia, 'Times New Roman', serif;
 
-  --global-light: #cbcdd2;
-  --global-dark: #1c1d21;
-  --global-darkest: #0f1012;
-  --global-light-grey: #848794;
-  --global-grey: #5d5d5d;
-  --global-dark-grey: #45474f;
+  /* Surfaces, ordered by elevation. Cards lift off the page by lightness,
+     not just by their border. */
+  --surface-sunken: #0a121a;
+  --surface-base: #0e1822;
+  --surface-alt: #131f2b;
+  --surface-raised: #17242f;
 
-  --secondary-color: #4fb4d8;
-  --primary-color: #8c5c15;
-  --success-color: #ef7c2a;
-  --danger-color: #395333;
-  --warning-color: #76a1a5;
+  /* The hero reads as its own plane: lighter at the top, sinking into the
+     page background at the fold. */
+  --hero-from: #1c3145;
+  --hero-to: #0c141d;
 
-  --background: var(--global-darkest);
-  --background-alt: var(--global-dark);
-  --text-color: var(--success-color);
-  --text-color-alt: var(--secondary-color);
-  --hover-color: var(--text-color-alt);
-  --hover-color-alt: var(--text-color);
+  --border-subtle: #22323f;
+  --border-strong: #35495c;
 
-  --box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.45);
-  --inset-box-shadow: inset var(--box-shadow);
+  /* Warm off-whites over cool navy surfaces — the warmth the palette needs
+     lives in the type, not the background. */
+  --text-heading: #f3f0ea;
+  --text-primary: #dee4e9;
+  --text-secondary: #9aa7b4;
 
-  --spacing: 1rem;
-  --spacing-less: 0.25rem;
-  --spacing-more: 3rem;
+  /* Forest green, brightened for legibility on dark. Foreground and fill are
+     separate roles and are not interchangeable: the `--accent*` pair is drawn
+     as text or icons on a surface, the `--accent-strong*` pair is a fill
+     behind `--on-accent` text. Every combination clears WCAG AA (4.5:1) —
+     hover included, which is why hover lightens the fill only slightly. */
+  --accent: #5fb98a;
+  --accent-bright: #8ad3a8;
+  --accent-strong: #2f7a52;
+  --accent-strong-hover: #337f56;
+  --accent-wash: rgba(95, 185, 138, 0.12);
+  --on-accent: #f7faf8;
 
-  --box-rounding: 5px;
-  --border-size: 2px;
-  --border-style: solid;
-  --border-color: var(--success-color);
-  --border-color-alt: var(--secondary-color);
+  --radius: 8px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.45);
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+}
+
+/* Narrowing the gutter once here re-flows the header, hero, every section,
+   and the footer together. */
+@media (max-width: 720px) {
+  :root {
+    --gutter: 1rem;
+  }
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  min-width: auto;
   margin: 0;
   padding: 0;
-  font-weight: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
-  background: var(--background);
-  color: var(--text-color);
+  background: var(--surface-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
   min-height: 100%;
-  transition:
-    color 0.5s,
-    background-color 0.5s;
-  line-height: 1.5;
-  font-family:
-    var(--font-primary),
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image:
-    radial-gradient(
-      var(--secondary-color),
-      rgba(255, 255, 255, 0.2) 5px,
-      transparent 40px
-    ),
-    radial-gradient(
-      var(--success-color),
-      rgba(255, 255, 255, 0.15) 1px,
-      transparent 30px
-    ),
-    radial-gradient(
-      var(--success-color),
-      rgba(255, 255, 255, 0.1) 2px,
-      transparent 40px
-    ),
-    radial-gradient(
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.1) 2px,
-      transparent 30px
-    );
-  background-size:
-    550px 550px,
-    350px 350px,
-    250px 250px,
-    150px 150px;
-  background-position:
-    0 0,
-    40px 60px,
-    130px 270px,
-    70px 100px;
-}
-
-ul {
-  list-style: none;
-}
-
-li {
-  padding: var(--spacing-less);
 }
 
 h1,
 h2,
 h3,
 h4 {
-  color: var(--text-color);
+  font-family: var(--font-heading);
+  color: var(--text-heading);
+  line-height: 1.2;
+  font-weight: 600;
 }
 
 a {
-  color: var(--secondary-color);
+  color: var(--accent);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--hover-color);
+  color: var(--accent-bright);
+  text-decoration: underline;
 }
 
-p {
-  margin: var(--spacing-less) 0;
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
   display: block;
 }
 
-hr {
-  width: 75%;
-}
-
-input,
-textarea {
-  width: 100%;
-  background: var(--global-dark);
-  color: var(--primary-color);
-  border: var(--primary-color) var(--border-size) solid;
-  border-radius: var(--box-rounding);
-  padding: var(--spacing-less) var(--spacing-less);
-  margin: var(--spacing-less) var(--spacing-less);
-}
-
-button {
-  display: inline-block;
-  text-decoration: none;
-  border: var(--border-size) var(--border-style) var(--border-color);
-  background: var(--background-alt);
-  color: var(--text-color-alt);
-  border-radius: var(--box-rounding);
-  font-weight: bold;
-  font-size: larger;
-  line-height: var(--spacing-more);
-  text-align: center;
-  padding: var(--spacing-less) var(--spacing);
-}
-
-button:hover {
-  color: var(--hover-color);
-  border-color: var(--border-color-alt);
-}
-
 .app {
-  min-width: var(--min-width);
-  max-width: var(--max-width);
-  width: 100%;
   min-height: 100vh;
-  margin: auto;
-  text-align: justify;
-  position: relative;
 }
 
-.screen {
-  min-height: max-content;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+/* Shared button styles: green primary, quiet outlined secondary. */
+.button {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.9rem 1.6rem;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button:hover {
+  text-decoration: none;
+}
+
+.button-primary {
+  background: var(--accent-strong);
+  color: var(--on-accent);
+}
+
+.button-primary:hover {
+  background: var(--accent-strong-hover);
+  color: var(--on-accent);
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.button-secondary:hover {
+  background: var(--surface-raised);
+  color: var(--text-heading);
+  border-color: var(--accent);
+}
+
+/* One card shell for every grid on the page. Content differentiates the
+   cards; the container never does. */
+.card {
+  background: var(--surface-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-sm);
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  margin-bottom: var(--space-1);
+}
+
+.card p {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+}
+
+/* Shared card grid. Override `--card-min` to change the column count; the
+   gap and wrapping behavior stay constant across sections. */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-min, 17rem), 1fr));
+  gap: var(--space-3);
+  list-style: none;
+}
+
+/* Small uppercase accent label above a card heading. */
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.2rem;
 }

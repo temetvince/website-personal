@@ -1,0 +1,48 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-width: var(--measure);
+}
+
+.contact-form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.contact-form-row .contact-form-field {
+  flex: 1 1 15rem;
+}
+
+.contact-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.contact-form-field label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+/* Inputs read as recessed: darker than the page, not lifted like a card. */
+.contact-form-field input,
+.contact-form-field textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: var(--surface-sunken);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 0.65rem 0.8rem;
+}
+
+.contact-form-field textarea {
+  resize: vertical;
+}
+
+.contact-form .button {
+  align-self: flex-start;
+}
