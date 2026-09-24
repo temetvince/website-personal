@@ -32,7 +32,7 @@
 }
 
 .hero-deck {
-  font-size: 1.2rem;
+  font-size: var(--text-lede);
   font-style: italic;
   color: var(--ink-soft);
   margin-bottom: var(--space-4);
@@ -47,7 +47,7 @@
 .hero-note {
   margin-top: var(--space-3);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--text-label);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -72,7 +72,7 @@
 
 .hero-figure figcaption {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: var(--text-label);
   letter-spacing: 0.06em;
   color: var(--ink-faint);
   margin-top: 0.5rem;

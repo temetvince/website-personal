@@ -2,6 +2,36 @@ section[id] {
   scroll-margin-top: 4.5rem;
 }
 
+/* The first thing the Tab key reaches. It sits off the sheet until focused,
+   then drops in above the sticky header, set like a button. */
+.skip-link {
+  position: absolute;
+  top: var(--space-1);
+  left: var(--space-1);
+  z-index: 20;
+  padding: 0.75rem 1rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* The skip link lands focus here so the next Tab enters the content. The
+   ring is dropped only on `main` itself: it is reachable by the skip link
+   alone, never by Tab, and a ring around the whole page would say nothing. */
+main:focus {
+  outline: none;
+}
+
 .section {
   padding: var(--space-5) var(--gutter);
 }
@@ -29,7 +59,7 @@ section[id] {
 /* The standfirst beneath a section head. */
 .section-lede {
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: var(--text-lede);
   color: var(--ink-soft);
   max-width: var(--measure);
   margin-bottom: var(--space-4);
@@ -37,7 +67,7 @@ section[id] {
 
 .byline {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: var(--text-label);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -70,7 +100,7 @@ section[id] {
 
 .story-aside dt {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: var(--text-label);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -80,7 +110,7 @@ section[id] {
 
 .story-aside dd {
   color: var(--ink-soft);
-  font-size: 0.95rem;
+  font-size: var(--text-body);
 }
 
 /* The marks of a lead story: justified setting, indented paragraphs, and a
@@ -115,7 +145,7 @@ section[id] {
   border-top: 3px double var(--rule);
   border-bottom: 3px double var(--rule);
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: var(--text-quote);
   font-style: italic;
   line-height: 1.4;
   text-align: center;
@@ -157,7 +187,7 @@ section[id] {
 
 .credibility-label {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: var(--text-label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -173,7 +203,7 @@ section[id] {
 
 .credibility-list li {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: var(--text-subhead);
   font-weight: 700;
   color: var(--ink);
 }
@@ -206,19 +236,9 @@ section[id] {
   justify-content: space-between;
   gap: var(--space-2);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--text-label);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.site-footer-links {
-  display: flex;
-  gap: var(--space-3);
-  list-style: none;
-}
-
-.site-footer-note {
-  width: 100%;
 }
 
 @media (max-width: 720px) {
@@ -229,9 +249,5 @@ section[id] {
   .site-footer-inner {
     flex-direction: column;
     text-align: center;
-  }
-
-  .site-footer-note {
-    width: auto;
   }
 }

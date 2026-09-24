@@ -20,7 +20,7 @@
 
 .masthead-tagline {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--text-label);
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -41,7 +41,7 @@
   border-top: 1px solid var(--rule);
   border-bottom: 3px double var(--rule);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: var(--text-label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-soft);

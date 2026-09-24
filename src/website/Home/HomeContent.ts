@@ -6,11 +6,19 @@
  */
 
 /**
- * Formspree endpoint the contact form posts to. Replace `YOUR_FORM_ID` with
- * the ID of a real Formspree form before the contact form can deliver mail —
- * see the README's "Contact form" section.
+ * Formspree endpoint the contact form posts to. The form ID belongs to
+ * Emmett's Formspree account; the README's "Contact form" section describes
+ * where submissions go and how to change the destination.
  */
-export const contactFormAction = 'https://formspree.io/f/YOUR_FORM_ID';
+export const contactFormAction = 'https://formspree.io/f/xzezgqrp';
+
+/** Confirmation shown in place of the contact form once a message is sent. */
+export const contactFormSuccess =
+  "Thanks — your message is on its way. I read every one myself, and I'll be in touch soon.";
+
+/** Notice shown above the submit button when a message could not be sent. */
+export const contactFormError =
+  "Something went wrong and your message wasn't sent. Please try again in a moment.";
 
 /** Name set in display type across the top of the page. */
 export const mastheadTitle = 'Emmett Casey';
@@ -232,17 +240,5 @@ export const trustSignals = [
   {
     title: 'Midwest practical',
     text: "I'm local, I answer my phone, and I'll tell you when you don't need what you're about to pay for. Straightforward is cheaper for both of us.",
-  },
-] as const;
-
-/** External links shown in the footer, in display order. */
-export const footerLinks = [
-  {
-    label: 'GitHub',
-    path: 'https://github.com/temetvince',
-  },
-  {
-    label: 'Resume (PDF)',
-    path: 'https://github.com/temetvince/Resume/blob/master/EmmettCaseyResume.pdf',
   },
 ] as const;

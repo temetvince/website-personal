@@ -2,7 +2,7 @@ import './Home.css';
 
 import { Fragment } from 'react';
 
-import profileImg from '../../../public/IMG_0081.JPG';
+import profileImg from '../../assets/portrait.jpg';
 import ContactForm from '../ContactForm/ContactForm';
 import Header from '../Header/Header';
 import Hero from '../Hero/Hero';
@@ -24,12 +24,21 @@ import * as content from './HomeContent';
 export default function Home() {
   return (
     <div id='top'>
+      <a
+        href='#main'
+        className='skip-link'
+      >
+        Skip to content
+      </a>
       <Header
         brand='Emmett Casey'
         navItems={content.navItems}
         cta={content.headerCta}
       />
-      <main>
+      <main
+        id='main'
+        tabIndex={-1}
+      >
         <Masthead
           title={content.mastheadTitle}
           tagline={content.mastheadTagline}
@@ -37,7 +46,7 @@ export default function Home() {
         />
 
         <Hero
-          headline='Big-league experience. Hometown practicality.'
+          headline='Big-league experience. Midwest practicality.'
           subheadline={content.heroSubheadline}
           photoSrc={profileImg}
           photoAlt='Emmett Casey'
@@ -157,9 +166,7 @@ export default function Home() {
         >
           <div className='section-inner'>
             <h2>Experience Highlights</h2>
-            <p className='section-lede'>
-              The short version — the full resume is linked in the footer.
-            </p>
+            <p className='section-lede'>The roles that shaped how I work.</p>
             <div className='card-grid'>
               {content.highlights.map((highlight) => (
                 <article
@@ -213,6 +220,8 @@ export default function Home() {
               action={content.contactFormAction}
               subject='New inquiry from elcasey.com'
               submitLabel='Send Message'
+              successMessage={content.contactFormSuccess}
+              errorMessage={content.contactFormError}
             />
           </div>
         </section>
@@ -221,20 +230,7 @@ export default function Home() {
       <footer className='site-footer'>
         <div className='site-footer-inner'>
           <p>© {new Date().getFullYear()} Emmett Casey — Joplin, Missouri</p>
-          <ul className='site-footer-links'>
-            {content.footerLinks.map((link) => (
-              <li key={link.label}>
-                <a
-                  href={link.path}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <p className='site-footer-note'>Amateur radio operator KI5SPL</p>
+          <p>Amateur radio operator KI5SPL</p>
         </div>
       </footer>
     </div>

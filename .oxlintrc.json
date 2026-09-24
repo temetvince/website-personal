@@ -41,7 +41,18 @@
     "react/react-in-jsx-scope": "off",
 
     // Line count is not a correctness property.
-    "eslint/max-lines-per-function": "off"
+    "eslint/max-lines-per-function": "off",
+
+    // Every parameter this repo declares must be deeply readonly — props above
+    // all. A parameter with no annotation takes its type from the library that
+    // calls it (a React event, a fetch `Response`), and those types are mutable
+    // by the library's design and cannot be made otherwise here. The rule
+    // therefore checks what this code annotates and leaves library-typed
+    // callback parameters to the library.
+    "typescript/prefer-readonly-parameter-types": [
+      "error",
+      { "ignoreInferredTypes": true }
+    ]
   },
 
   "overrides": [
